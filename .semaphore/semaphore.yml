@@ -27,15 +27,15 @@ blocks:
             - pip install --cache-dir .pip_cache -r requirements.txt
         - name: Unit test
           commands:
-            - cd martor_demo/
+            - cd django-markdown-editor/martor_demo
             - python manage.py makemigrations
             - python manage.py migrate
             - python manage.py test
         - name: Deploy checklist
           commands:
-            - cd martor_demo/
+            - cd django-markdown-editor/martor_demo
             - python manage.py check --deploy
         - name: Style
           commands:
             - pip install flake8
-            - flake8 martor_demo/ --max-line-length=127
+            - flake8 django-markdown-editor/martor_demo --max-line-length=127
