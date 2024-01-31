@@ -25,14 +25,16 @@ blocks:
             - checkout
             - cache restore
             - pip install --cache-dir .pip_cache -r requirements.txt
-        - name: Unit Test
+        - name: Unit test
           commands:
-            - ./manage.py makemigrations
-            - ./manage.py migrate
-            - ./manage.py test
-        - name: Deploy Checklist
+            - cd martor_demo
+            - python manage.py makemigrations
+            - python manage.py migrate
+            - python manage.py test
+        - name: Deploy checklist
           commands:
-            - ./manage.py check --deploy
+            - cd martor_demo
+            - python manage.py check --deploy
         - name: Style
           commands:
             - pip install flake8
